@@ -1,6 +1,3 @@
-let canvas = document.getElementById("canvas");
-let g = canvas.getContext("2d");
-
 const gamestate_start=0;
 const gamestate_ingame=1;
 const gamestate_gameover=2;
@@ -13,3 +10,8 @@ let boardPositionsize= 50;
 let pawnPosition= [];
 let boardPositions=[];
 let playerAmountButtons = [];
+
+let canvas = document.getElementById("canvas");
+let g = canvas.getContext("2d");
+
+
