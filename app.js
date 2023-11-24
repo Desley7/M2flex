@@ -1,3 +1,5 @@
+let uiWindow = createRect(600,200,300,300);
+
 const gamestate_start=0;
 const gamestate_ingame=1;
 const gamestate_gameover=2;
@@ -65,6 +67,9 @@ function createBoardPositions() {
         boardPositions.push(createRect(x, y, boardPositionSize, boardPositionSize));
     }
 }
+ function initGame()
+ {
+    createBoardPositions
+ }
+
  
-createBoardPositions();
-draw();
