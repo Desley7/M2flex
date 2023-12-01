@@ -71,5 +71,66 @@ function createBoardPositions() {
  {
     createBoardPositions
  }
+ let button = createRect(uiWindow.x + 5 + (i * (50 + 10)), uiWindow.y + 50, 50, 50);
+
+ // Voeg bovenaan in je bestand de volgende variabelen toe:
+ {let gamestate_start = 0;
+ let gamestate_ingame = 1;
+ let gamestate_gameover = 2;
+ let gameState = gamestate_start;}
+
+// Voeg de drawGameStart, drawIngame en drawGameOver functies toe:
+
+function drawGameStart() {
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "white";
+    ctx.font = "30px Arial";
+    ctx.fillText("Click the amount of players to start", 50, 50);
+
+    // Teken de buttons
+    for (let i = 0; i < playerAmountButtons.length; i++) {
+        ctx.fillStyle = "blue"; // Pas de kleur aan indien nodig
+        ctx.fillRect(playerAmountButtons[i].x, playerAmountButtons[i].y, playerAmountButtons[i].width, playerAmountButtons[i].height);
+
+        ctx.fillStyle = "white";
+        ctx.font = "20px Arial";
+        ctx.fillText(playerAmountButtons[i].playerAmount, playerAmountButtons[i].x + 20, playerAmountButtons[i].y + 30);
+    }
+}
+
+function drawIngame() {
+    // Teken het bord of andere elementen voor de 'ingame' state
+    // Deze code zal hier worden geplaatst wanneer je het implementeert
+}
+
+function drawGameOver() {
+    // Teken het game-over scherm of andere elementen voor de 'gameover' state
+    // Deze code zal hier worden geplaatst wanneer je het implementeert
+}
+
+// Pas de draw functie aan:
+
+function draw() {
+    if (gameState === gamestate_start) {
+        drawGameStart();
+    } else if (gameState === gamestate_ingame) {
+        drawIngame();
+    } else if (gameState === gamestate_gameover) {
+        drawGameOver();
+    }
+}
+
+// Voeg de volgende regels toe onder de initGame-functie:
+
+// Stel de playerAmount in voor elke button
+for (let i = 0; i < playerAmountButtons.length; i++) {
+    playerAmountButtons[i].playerAmount = i + 1;
+}
+
+// Voeg de volgende regels toe om de draw-functie aan te roepen:
+initGame(); // Roep initGame aan om de buttons en andere initialisaties uit te voeren
+draw(); // Roep draw aan om het juiste scherm te tekenen
 
  
